@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <title>English Class | زبان انگلیسی نهم</title>
+  <style>
+    :root {
+      --black: #111111;
+      --panel: #1b1b1b;
+      --panel2: #242424;
+      --white: #f7f7f4;
+      --muted: #bdbdb7;
+      --gold: #d6b45c;
+      --gold-light: #f0d98e;
+      --line: rgba(214,180,92,.25);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--white);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.8;
+    }
+    a { color: inherit; text-decoration: none; }
+    .site-header {
+      border-bottom: 1px solid var(--line);
+      background: #101010;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-inner {
+      width: min(1120px, 92%);
+      margin: auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      direction: ltr;
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+    }
+    .brand span { color: var(--gold); }
+    .header-note { color: var(--muted); font-size: .88rem; }
+    .hero {
+      width: min(1120px, 92%);
+      margin: 42px auto 28px;
+      padding: clamp(24px, 5vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: radial-gradient(circle at 10% 0%, rgba(214,180,92,.15), transparent 42%), var(--panel);
+      text-align: center;
+    }
+    .eyebrow { color: var(--gold-light); font-size: .85rem; letter-spacing: 2px; direction: ltr; }
+    h1 { margin: 8px 0; font-size: clamp(1.7rem, 5vw, 2.8rem); }
+    h1 span { color: var(--gold); }
+    .hero p { color: var(--muted); margin: 8px auto 0; max-width: 620px; }
+    .layout {
+      width: min(1120px, 92%);
+      margin: 0 auto 56px;
+      display: grid;
+      grid-template-columns: 310px minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+    .sidebar, .content-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+    .sidebar { padding: 18px; }
+    .sidebar h2 { font-size: 1.05rem; margin: 0 0 14px; color: var(--gold-light); }
+    .lesson {
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 12px;
+      margin: 10px 0;
+      overflow: hidden;
+      background: #171717;
+    }
+    .lesson-toggle {
+      width: 100%;
+      border: 0;
+      color: var(--white);
+      background: transparent;
+      padding: 13px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      text-align: right;
+      font: inherit;
+      cursor: pointer;
+      min-height: 50px;
+    }
+    .lesson-toggle:hover, .lesson-toggle[aria-expanded="true"] { background: rgba(214,180,92,.1); }
+    .lesson-name { font-weight: 700; }
+    .lesson-name small { display: block; color: var(--muted); font-size: .75rem; font-weight: 400; direction: ltr; text-align: right; }
+    .chevron { color: var(--gold); transition: transform .2s; }
+    .lesson-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+    .subitems { display: none; padding: 4px 10px 12px; }
+    .subitems.open { display: grid; gap: 5px; }
+    .subitems button {
+      border: 0;
+      border-right: 2px solid transparent;
+      color: var(--muted);
+      background: transparent;
+      text-align: right;
+      padding: 8px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+      font: inherit;
+      font-size: .9rem;
+      min-height: 42px;
+    }
+    .subitems button:hover, .subitems button.active {
+      color: var(--gold-light);
+      background: rgba(214,180,92,.09);
+      border-right-color: var(--gold);
+    }
+    .content-card { padding: clamp(20px, 4vw, 34px); min-height: 390px; }
+    .content-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+    .tag {
+      display: inline-block;
+      color: var(--black);
+      background: var(--gold);
+      border-radius: 30px;
+      padding: 3px 12px;
+      font-size: .76rem;
+      font-weight: 700;
+    }
+    .content-card h2 { margin: 10px 0 2px; font-size: clamp(1.35rem, 3vw, 1.8rem); }
+    .english-title { direction: ltr; text-align: right; color: var(--gold-light); font-size: .95rem; }
+    .content-card p { color: var(--muted); }
+    .info-box {
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      padding: 16px 18px;
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+    .info-box h3 { color: var(--gold-light); margin: 0 0 6px; font-size: 1rem; }
+    .info-box p { margin: 0; }
+    .tip { color: var(--muted); font-size: .86rem; }
+    .footer {
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: #999;
+      padding: 22px 12px;
+      font-size: .82rem;
+    }
+    .footer span { color: var(--gold); }
+    @media (max-width: 760px) {
+      .header-inner { min-height: 66px; }
+      .header-note { display: none; }
+      .hero { margin-top: 22px; }
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { order: 1; }
+      .content-card { order: 2; min-height: 300px; }
+      .content-top { flex-direction: column; }
+    }
+    @media (max-width: 380px) {
+      .header-inner, .hero, .layout { width: 94%; }
+      .brand { font-size: 1rem; }
+      .hero { padding: 22px 15px; }
+      .content-card { padding: 18px 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="English Class home">ENGLISH <span>CLASS</span></a>
+      <div class="header-note">پروژه درس زبان انگلیسی پایه نهم</div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">LEARN • PRACTICE • IMPROVE</div>
+    <h1>زبان انگلیسی <span>نهم</span></h1>
+    <p>از فهرست درس‌ها، موضوع موردنظرت رو انتخاب کن و بخش‌های واژگان، گرامر، مکالمه و تمرین رو ببین.</p>
+  </section>
+
+  <main class="layout">
+    <aside class="sidebar" aria-label="فهرست درس‌ها">
+      <h2>فهرست درس‌ها</h2>
+
+      <section class="lesson">
+        <button class="lesson-toggle" aria-expanded="true" aria-controls="lesson1">
+          <span class="lesson-name">درس اول <small>Personality</small></span><span class="chevron">⌄</span>
+        </button>
+        <div class="subitems open" id="lesson1">
+          <button class="active" data-lesson="1" data-topic="overview">معرفی درس</button>
+          <button data-lesson="1" data-topic="vocabulary">واژگان (Vocabulary)</button>
+          <button data-lesson="1" data-topic="grammar">دستور زبان (Grammar)</button>
+          <button data-lesson="1" data-topic="conversation">مکالمه (Conversation)</button>
+          <button data-lesson="1" data-topic="practice">تمرین (Practice)</button>
+        </div>
+      </section>
+
+      <section class="lesson">
+        <button class="lesson-toggle" aria-expanded="false" aria-controls="lesson2">
+          <span class="lesson-name">درس دوم <small>Travel</small></span><span class="chevron">⌄</span>
+        </button>
+        <div class="subitems" id="lesson2">
+          <button data-lesson="2" data-topic="overview">معرفی درس</button>
+          <button data-lesson="2" data-topic="vocabulary">واژگان (Vocabulary)</button>
+          <button data-lesson="2" data-topic="grammar">دستور زبان (Grammar)</button>
+          <button data-lesson="2" data-topic="conversation">مکالمه (Conversation)</button>
+          <button data-lesson="2" data-topic="practice">تمرین (Practice)</button>
+        </div>
+      </section>
+
+      <section class="lesson">
+        <button class="lesson-toggle" aria-expanded="false" aria-controls="lesson3">
+          <span class="lesson-name">درس سوم <small>Festivals and Ceremonies</small></span><span class="chevron">⌄</span>
+        </button>
+        <div class="subitems" id="lesson3">
+          <button data-lesson="3" data-topic="overview">معرفی درس</button>
+          <button data-lesson="3" data-topic="vocabulary">واژگان (Vocabulary)</button>
+          <button data-lesson="3" data-topic="grammar">دستور زبان (Grammar)</button>
+          <button data-lesson="3" data-topic="conversation">مکالمه (Conversation)</button>
+          <button data-lesson="3" data-topic="practice">تمرین (Practice)</button>
+        </div>
+      </section>
+      <p class="tip">برای دیدن زیرمجموعه‌ها روی عنوان هر درس بزن.</p>
+    </aside>
+
+    <section class="content-card" aria-live="polite">
+      <div class="content-top">
+        <div>
+          <span class="tag" id="lesson-tag">LESSON 01</span>
+          <h2 id="topic-title">معرفی درس اول</h2>
+          <div class="english-title" id="english-title">Personality</div>
+        </div>
+        <span class="tag">ENGLISH • 9</span>
+      </div>
+      <div id="content">
+        <div class="info-box">
+          <h3>موضوع درس: شخصیت</h3>
+          <p>در این درس با واژه‌ها و عبارت‌هایی برای توصیف ویژگی‌های اخلاقی و شخصیتی افراد آشنا می‌شویم.</p>
+        </div>
+        <p>از زیرمجموعه‌های سمت راست، واژگان، دستور زبان، مکالمه یا تمرین را انتخاب کن.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">طراحی‌شده با <span>HTML</span> و <span>CSS</span> | پروژه آموزشی زبان انگلیسی</footer>
+
+  <script>
+    const lessonNames = {
+      1: { fa: "شخصیت", en: "Personality" },
+      2: { fa: "سفر", en: "Travel" },
+      3: { fa: "جشن‌ها و مراسم", en: "Festivals and Ceremonies" }
+    };
+    const topicNames = {
+      overview: ["معرفی", "Overview"],
+      vocabulary: ["واژگان", "Vocabulary"],
+      grammar: ["دستور زبان", "Grammar"],
+      conversation: ["مکالمه", "Conversation"],
+      practice: ["تمرین", "Practice"]
+    };
+    const content = {
+      overview: (lesson, name) => `<div class="info-box"><h3>موضوع درس: ${name.fa}</h3><p>${lesson === 1 ? "آشنایی با ویژگی‌های شخصیتی و روش توصیف افراد." : lesson === 2 ? "آشنایی با سفر، وسایل سفر و صحبت درباره تجربه‌های سفر." : "آشنایی با جشن‌ها، مناسبت‌ها و مراسم گوناگون."}</p></div><p>این بخش برای معرفی کوتاه موضوع درس در نظر گرفته شده است. می‌توانی توضیحات معلم یا نکته‌های کتاب را اینجا اضافه کنی.</p>`,
+      vocabulary: () => `<div class="info-box"><h3>واژگان جدید</h3><p>در این قسمت واژه‌های مهم درس را همراه با معنی فارسی و یک جمله نمونه بنویس.</p></div><p><b>نمونه قالب:</b> Word — معنی فارسی — Example sentence</p>`,
+      grammar: () => `<div class="info-box"><h3>نکته‌های گرامری</h3><p>قواعد مهم درس را به زبان ساده و همراه با مثال یادداشت کن.</p></div><p>برای هر قاعده، یک مثال انگلیسی و ترجمه فارسی اضافه کن تا مرور آن آسان‌تر شود.</p>`,
+      conversation: () => `<div class="info-box"><h3>مکالمه</h3><p>عبارت‌های کاربردی و گفت‌وگوهای تمرینی مرتبط با موضوع درس را اینجا قرار بده.</p></div><p>می‌توانی برای هر مکالمه، ترجمه و معنی عبارت‌های جدید را هم اضافه کنی.</p>`,
+      practice: () => `<div class="info-box"><h3>تمرین و مرور</h3><p>سؤال‌های چهارگزینه‌ای، جای خالی و درست یا نادرست مربوط به درس را اینجا بنویس.</p></div><p>پیشنهاد: بعد از اضافه‌کردن سؤال‌ها، پاسخ‌نامه را در انتهای همین بخش قرار بده.</p>`
+    };
+
+    document.querySelectorAll(".lesson-toggle").forEach(button => {
+      button.addEventListener("click", () => {
+        const panel = document.getElementById(button.getAttribute("aria-controls"));
+        const willOpen = button.getAttribute("aria-expanded") !== "true";
+        button.setAttribute("aria-expanded", String(willOpen));
+        panel.classList.toggle("open", willOpen);
+      });
+    });
+
+    document.querySelectorAll(".subitems button").forEach(button => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".subitems button").forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        const lesson = Number(button.dataset.lesson);
+        const topic = button.dataset.topic;
+        const name = lessonNames[lesson];
+        const topicName = topicNames[topic];
+        document.getElementById("lesson-tag").textContent = `LESSON 0${lesson}`;
+        document.getElementById("topic-title").textContent = `${topicName[0]} درس ${lesson}`;
+        document.getElementById("english-title").textContent = name.en + " · " + topicName[1];
+        document.getElementById("content").innerHTML = content[topic](lesson, name);
+      });
+    });
+  </script>
+</body>
+</html>
