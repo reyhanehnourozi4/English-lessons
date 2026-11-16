@@ -3,125 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>English Lessons | زبان نهم</title>
+<title>English Lessons | Grade 9</title>
 
 <style>
-:root {
-    --gold: #d6ad55;
-    --black: #090909;
-    --panel: #191919;
-    --white: #f5f5f5;
-}
-
 * {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    background: var(--black);
-    color: var(--white);
+    background: #090909;
+    color: #eee;
     font-family: Tahoma, Arial, sans-serif;
     line-height: 2;
 }
 
 header {
     text-align: center;
-    padding: 30px 15px;
+    padding: 35px 15px;
     background: linear-gradient(135deg, #080808, #302515);
-    border-bottom: 2px solid var(--gold);
+    border-bottom: 2px solid #d6ad55;
 }
 
 header h1 {
-    color: var(--gold);
+    color: #d6ad55;
+    font-size: 32px;
     margin: 0;
-    font-size: 34px;
+    direction: ltr;
 }
 
 header p {
     color: #ddd;
+    margin: 5px;
 }
 
 .container {
-    max-width: 1000px;
-    margin: 25px auto;
+    max-width: 1050px;
+    margin: 30px auto;
     padding: 0 15px;
 }
 
 .card {
-    background: var(--panel);
-    border: 1px solid #51432a;
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
+    background: #171717;
+    border: 1px solid #594827;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 5px 20px #000;
 }
 
 h2, h3 {
-    color: var(--gold);
-}
-
-button {
-    font-family: inherit;
-    cursor: pointer;
-    border: 1px solid var(--gold);
-    border-radius: 9px;
-    background: #222;
-    color: white;
-    padding: 10px 15px;
-    margin: 4px;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #493b20;
-}
-
-button.active {
-    background: var(--gold);
-    color: #111;
-    font-weight: bold;
+    color: #d6ad55;
 }
 
 .lesson-buttons,
 .section-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 9px;
     margin-bottom: 20px;
+}
+
+button {
+    background: #202020;
+    color: #eee;
+    border: 1px solid #b9954b;
+    padding: 10px 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: .25s;
+}
+
+button:hover {
+    background: #51401f;
+    transform: translateY(-2px);
+}
+
+button.active {
+    background: #d6ad55;
+    color: #111;
+    font-weight: bold;
 }
 
 .lesson-buttons button {
     flex: 1;
+    direction: ltr;
 }
 
 .section {
     display: none;
+    animation: appear .25s ease;
 }
 
 .section.active {
     display: block;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 15px 0;
-}
-
-th, td {
-    border: 1px solid #665333;
-    padding: 9px;
-    text-align: right;
-}
-
-th {
-    color: var(--gold);
-    background: #302515;
-}
-
-tr:nth-child(even) {
-    background: #242424;
+@keyframes appear {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .english {
@@ -131,31 +112,56 @@ tr:nth-child(even) {
 }
 
 .note {
-    background: #282216;
-    border-right: 3px solid var(--gold);
+    background: #292216;
+    border-right: 3px solid #d6ad55;
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 7px;
+    margin: 15px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+td, th {
+    border: 1px solid #594827;
+    padding: 9px;
+    text-align: right;
+}
+
+th {
+    background: #302515;
+    color: #e5c274;
+}
+
+tr:nth-child(even) {
+    background: #222;
 }
 
 .answer {
     display: none;
-    color: var(--gold);
+    color: #e5c274;
     font-weight: bold;
+    padding: 8px;
 }
 
 footer {
     text-align: center;
-    padding: 25px;
     color: #aaa;
+    padding: 25px;
+    border-top: 1px solid #594827;
+    margin-top: 35px;
 }
 
-@media(max-width:600px) {
+@media(max-width:650px) {
     header h1 {
-        font-size: 26px;
+        font-size: 25px;
     }
 
     .card {
-        padding: 13px;
+        padding: 14px;
     }
 
     .lesson-buttons button {
@@ -166,9 +172,8 @@ footer {
         flex: 1 1 40%;
     }
 
-    td, th {
+    table {
         font-size: 13px;
-        padding: 6px;
     }
 }
 </style>
@@ -177,51 +182,28 @@ footer {
 <body>
 
 <header>
-    <h1>English Lessons</h1>
+    <h1>ENGLISH LESSONS</h1>
     <p>آموزش زبان انگلیسی پایه نهم</p>
 </header>
 
-<div class="container">
+<main class="container">
 
     <div class="lesson-buttons">
-        <button class="active" onclick="selectLesson(0,this)">
-            Lesson 1 - Personality
-        </button>
-
-        <button onclick="selectLesson(1,this)">
-            Lesson 2 - Travel
-        </button>
-
-        <button onclick="selectLesson(2,this)">
-            Lesson 3 - Festivals
-        </button>
+        <button class="active" onclick="selectLesson(0,this)">Lesson 1 - Personality</button>
+        <button onclick="selectLesson(1,this)">Lesson 2 - Travel</button>
+        <button onclick="selectLesson(2,this)">Lesson 3 - Festivals and Ceremonies</button>
     </div>
 
     <div class="card">
-
         <h2 id="lessonTitle"></h2>
         <p id="lessonIntro"></p>
 
         <div class="section-buttons">
-            <button class="active" onclick="showSection('overview',this)">
-                معرفی درس
-            </button>
-
-            <button onclick="showSection('vocabulary',this)">
-                واژگان جدید
-            </button>
-
-            <button onclick="showSection('grammar',this)">
-                گرامر
-            </button>
-
-            <button onclick="showSection('conversation',this)">
-                مکالمه
-            </button>
-
-            <button onclick="showSection('practice',this)">
-                تمرین
-            </button>
+            <button class="active" onclick="showSection('overview',this)">معرفی درس</button>
+            <button onclick="showSection('vocabulary',this)">واژگان</button>
+            <button onclick="showSection('grammar',this)">گرامر</button>
+            <button onclick="showSection('conversation',this)">مکالمه</button>
+            <button onclick="showSection('practice',this)">تمرین</button>
         </div>
 
         <div id="overview" class="section active"></div>
@@ -229,38 +211,29 @@ footer {
         <div id="grammar" class="section"></div>
         <div id="conversation" class="section"></div>
         <div id="practice" class="section"></div>
-
     </div>
-</div>
+
+</main>
 
 <footer>
     English Lessons | Grade 9
 </footer>
 
 <script>
+"use strict";
 
 const lessons = [
-
 {
-    title: "L"
+    title: "Lesson 1: Personality",
+    intro: "درس اول: شخصیت و ویژگی‌های اخلاق
 
-esson 1: Personality",
-    intro: "درس اول: شخصیت و ویژگی‌های اخلاقی افراد",
+ی",
 
-    overview: `
-        <h3>Personality - شخصیت</h3>
-
-        <p>
-        در این درس با ویژگی‌های شخصیتی افراد آشنا می‌شویم.
-        یاد می‌گیریم درباره اخلاق و رفتار دوستان و اطرافیانمان صحبت کنیم.
-        </p>
-
-        <div class="note">
-            What is he like?
-            <br>
-            او چه‌جور آدمی است؟
-        </div>
-    `,
+    overview: [
+        "<h3>Personality - شخصیت</h3>",
+        "<p>در این درس با ویژگی‌های شخصیتی افراد آشنا می‌شویم.</p>",
+        "<div class='note'>What is he like?<br>او چه‌جور آدمی است؟</div>"
+    ].join(""),
 
     vocabulary: [
         ["personality","شخصیت"],
@@ -278,119 +251,66 @@ esson 1: Personality",
         ["quiet","ساکت"],
         ["rude","بی‌ادب"],
         ["selfish","خودخواه"],
+        ["lazy","تنبل"],
         ["shy","خجالتی"],
-        ["talkative","پرحرف"],
         ["friendly","خوش‌برخورد"],
         ["polite","مؤدب"],
-        ["patient","صبور"],
-        ["serious","جدی"],
-        ["generous","سخاوتمند"],
-        ["careful","بادقت"],
-        ["upset","ناراحت"]
+        ["patient","صبور"]
     ],
 
-    grammar: `
-        <h3>فعل‌های am / is / are</h3>
+    grammar: [
+        "<h3>Verb To Be</h3>",
+        "<p>از am، is و are برای معرفی و توصیف استفاده می‌کنیم.</p>",
+        "<table><tr><th>فاعل</th><th>فعل</th></tr>",
+        "<tr><td>I</td><td>am</td></tr>",
+        "<tr><td>He / She / It</td><td>is</td></tr>",
+        "<tr><td>You / We / They</td><td>are</td></tr></table>",
+        "<h3>مثال‌ها</h3>",
+        "<p class='english'>I am clever.</p>",
+        "<p>من باهوش هستم.</p>",
+        "<p class='english'>She is kind.</p>",
+        "<p>او مهربان است.</p>",
+        "<p class='english'>They are helpful.</p>",
+        "<p>آن‌ها کمک‌کننده هستند.</p>",
+        "<h3>سوالی کردن</h3>",
+        "<p class='english'>Is he shy?</p>",
+        "<h3>منفی کردن</h3>",
+        "<p class='english'>He is not shy.</p>"
+    ].join(""),
 
-        <table>
-            <tr>
-                <th>فاعل</th>
-                <th>فعل مناسب</th>
-            </tr>
+    conversation: [
+        "<h3>Conversation</h3>",
+        "<p class='english'>A: Who is your best friend?</p>",
+        "<p class='english'>B: Reza is my best friend.</p>",
+        "<p class='english'>A: What is he like?</p>",
+        "<p class='english'>B: He is clever and kind.</p>",
+        "<div class='note'>مکالمه نمونه تمرینی</div>"
+    ].join(""),
 
-            <tr>
-                <td class="english">I</td>
-                <td class="english">am</td>
-            </tr>
-
-            <tr>
-                <td class="english">He / She / It</td>
-                <td class="english">is</td>
-            </tr>
-
-            <tr>
-                <td class="english">You / We / They</td>
-                <td class="english">are</td>
-            </tr>
-        </table>
-
-        <h3>مثال‌ها</h3>
-
-        <p class="english">I am clever.</p>
-        <p>من باهوش هستم.</p>
-
-        <p class="english">She is kind.</p>
-        <p>او مهربان است.</p>
-
-        <p class="english">They are helpful.</p>
-        <p>آن‌ها کمک‌کننده هستند.</p>
-
-        <h3>جمله منفی</h3>
-        <p class="english">He is not shy.</p>
-
-        <h3>جمله پرسشی</h3>
-        <p class="english">Is he shy?</p>
-
-        <h3>سؤال درباره شخصیت</h3>
-        <p class="english">What is your friend like?</p>
-        <p class="english">He is very kind.</p>
-    `,
-
-    conversation: `
-        <h3>مکالمه درباره شخصیت</h3>
-
-        <p class="english">A: Who is your best friend?</p>
-        <p class="english">B: Reza is my best friend.</p>
-
-        <p class="english">A: What is he like?</p>
-        <p class="english">B: He is clever and kind.</p>
-
-        <p class="note">
-            این مکالمه نمونه تمرینی بازنویسی‌شده است.
-        </p>
-    `,
-
-    practice: `
-        <h3>تمرین درس اول</h3>
-
-        <p>۱. جای خالی را کامل کن:</p>
-        <p class="english">She _ kind.</p>
-
-        <button onclick="answer('a1')">نمایش جواب</button>
-        <p class="answer" id="a1">is</p>
-
-        <p>۲. معنی hard-working چیست؟</p>
-
-        <button onclick="answer('a2')">نمایش جواب</button>
-        <p class="answer" id="a2">سخت‌کوش</p>
-
-        <p>۳. جمله را منفی کن:</p>
-        <p class="english">He is shy.</p>
-
-        <button onclick="answer('a3')">نمایش جواب</button>
-        <p class="answer" id="a3">He is not shy.</p>
-    `
+    practice: [
+        "<h3>تمرین درس اول</h3>",
+        "<p>۱. جای خالی را کامل کن:</p>",
+        "<p class='english'>She _ kind.</p>",
+        "<button onclick=\"answer('a1')\">نمایش جواب</button>",
+        "<p class='answer' id='a1'>is</p>",
+        "<p>۲. معنی hard-working چیست؟</p>",
+        "<button onclick=\"answer('a2')\">نمایش جواب</button>",
+        "<p class='answer' id='a2'>سخت‌کوش</p>",
+        "<p>۳. جمله را منفی کن: He is shy.</p>",
+        "<button onclick=\"answer('a3')\">نمایش جواب</button>",
+        "<p class='answer' id='a3'>He is not shy.</p>"
+    ].join("")
 },
 
 {
     title: "Lesson 2: Travel",
     intro: "درس دوم: سفر و گردشگری",
 
-    overview: `
-        <h3>Travel - سفر</h3>
-
-        <p>
-        در این درس با کلمات و عبارت‌های مربوط به سفر،
-        هتل، فرودگاه و گردشگری آشنا می‌شویم.
-        همچنین یاد می‌گیریم درباره کارهایی که در حال انجام هستند صحبت کنیم.
-        </p>
-
-        <div class="note">
-            Present Continuous
-            <br>
-            زمان حال استمراری
-        </div>
-    `,
+    overview: [
+        "<h3>Travel - سفر</h3>",
+        "<p>در این درس با واژگان مربوط به سفر، هتل و فرودگاه آشنا می‌شویم.</p>",
+        "<div class='note'>Present Continuous - زمان حال استمراری</div>"
+    ].join(""),
 
     vocabulary: [
         ["travel","سفر کردن"],
@@ -400,134 +320,72 @@ esson 1: Personality",
         ["reservation","رزرو"],
         ["receptionist","مسئول پذیرش"],
         ["passport","گذرنامه"],
-        ["key","کلید"],
         ["room","اتاق"],
-        ["gift shop","فروشگاه هدیه"],
-        ["wife","همسر (زن)"],
-        ["husband","همسر (شوهر)"],
-        ["da
-
-ughter","دختر"],
         ["airport","فرودگاه"],
         ["stay","اقامت کردن"],
         ["enjoy","لذت بردن"],
         ["visit","بازدید کردن"],
-        ["buy a ticket","بلیت خریدن"],
-        ["check in","پذیرش ورود"],
-        ["take off","بلند شدن هواپیما"],
+        ["ticket","بلیت"],
+        ["key","کلید"],
+        ["gift shop","فروشگاه هدیه"],
+        ["wife","همسر"],
+        ["husband","شوهر"],
+        ["daughter","دختر"],
         ["land","فرود آمدن"],
-        ["fill out the form","فرم را پر کردن"],
-        ["exchange money","پول تبدیل کردن"],
-        ["book a hotel","هتل رزرو کردن"],
-        ["check out","تسویه و خروج از هتل"]
+        ["take off","بلند شدن هواپیما"]
     ],
 
-    grammar: `
-        <h3>زمان حال استمراری</h3>
+    grammar: [
+        "<h3>Present Continuous</h3>",
+        "<p>برای کاری که در همین لحظه در حال انجام است استفاده می‌شود.</p>",
+        "<div class='note english'>Subject + am / is / are + verb-ing</div>",
+        "<h3>مثال‌ها</h3>",
+        "<p class='english'>I am reading.</p>",
+        "<p>من در حال خواندن هستم.</p>",
+        "<p class='english'>She is writing.</p>",
+        "<p>او در حال نوشتن است.</p>",
+        "<p class='english'>They are traveling.</p>",
+        "<p>آن‌ها در حال سفر هستند.</p>",
+        "<h3>منفی</h3>",
+        "<p class='english'>He is not sleeping.</p>",
+        "<h3>سوالی</h3>",
 
-        <p>
-        برای کاری استفاده می‌شود که همین حالا در حال انجام است.
-        </p>
+"<p class='english'>Are you studying?</p>"
+    ].join(""),
 
-        <div class="note english">
-            Subject + am / is / are + verb-ing
-        </div>
+    conversation: [
+        "<h3>Conversation at a Hotel</h3>",
+        "<p class='english'>Receptionist: Welcome to our hotel.</p>",
+        "<p class='english'>Guest: I have a reservation.</p>",
+        "<p class='english'>Receptionist: Are you staying for two nights?</p>",
+        "<p class='english'>Guest: Yes, my wife and I are visiting Tehran.</p>",
+        "<div class='note'>مکالمه نمونه تمرینی</div>"
+    ].join(""),
 
-        <h3>مثال‌ها</h3>
-
-        <p class="english">I am reading.</p>
-        <p>من در حال خواندن هستم.</p>
-
-        <p class="english">She is writing.</p>
-        <p>او در حال نوشتن است.</p>
-
-        <p class="english">They are traveling.</p>
-        <p>آن‌ها در حال سفر هستند.</p>
-
-        <h3>جمله منفی</h3>
-        <p class="english">He is not sleeping.</p>
-
-        <h3>جمله پرسشی</h3>
-        <p class="english">Are you studying?</p>
-        <p>آیا داری درس می‌خوانی؟</p>
-
-        <h3>کلمات پرسشی</h3>
-
-        <p class="english">
-            What = چه چیزی
-            <br>
-            Where = کجا
-            <br>
-            Who = چه کسی
-            <br>
-            How = چگونه
-        </p>
-    `,
-
-    conversation: `
-        <h3>مکالمه در هتل</h3>
-
-        <p class="english">
-            Receptionist: Welcome to our hotel.
-        </p>
-
-        <p class="english">
-            Guest: I have a reservation.
-        </p>
-
-        <p class="english">
-            Receptionist: Are you staying for two nights?
-        </p>
-
-        <p class="english">
-            Guest: Yes, my wife and I are visiting Tehran.
-        </p>
-
-        <p class="note">
-            این مکالمه نمونه تمرینی بازنویسی‌شده است.
-        </p>
-    `,
-
-    practice: `
-        <h3>تمرین درس دوم</h3>
-
-        <p>۱. جای خالی را کامل کن:</p>
-        <p class="english">They _ traveling.</p>
-
-        <button onclick="answer('b1')">نمایش جواب</button>
-        <p class="answer" id="b1">are</p>
-
-        <p>۲. معنی passport چیست؟</p>
-
-        <button onclick="answer('b2')">نمایش جواب</button>
-        <p class="answer" id="b2">گذرنامه</p>
-
-        <p>۳. جمله را پرسشی کن:</p>
-        <p class="english">She is reading.</p>
-
-        <button onclick="answer('b3')">نمایش جواب</button>
-        <p class="answer" id="b3">Is she reading?</p>
-    `
+    practice: [
+        "<h3>تمرین درس دوم</h3>",
+        "<p>۱. جای خالی را کامل کن:</p>",
+        "<p class='english'>They _ traveling.</p>",
+        "<button onclick=\"answer('b1')\">نمایش جواب</button>",
+        "<p class='answer' id='b1'>are</p>",
+        "<p>۲. معنی passport چیست؟</p>",
+        "<button onclick=\"answer('b2')\">نمایش جواب</button>",
+        "<p class='answer' id='b2'>گذرنامه</p>",
+        "<p>۳. جمله را پرسشی کن: She is reading.</p>",
+        "<button onclick=\"answer('b3')\">نمایش جواب</button>",
+        "<p class='answer' id='b3'>Is she reading?</p>"
+    ].join("")
 },
 
 {
     title: "Lesson 3: Festivals and Ceremonies",
     intro: "درس سوم: جشنواره‌ها و مراسم",
 
-    overview: `
-        <h3>Festivals and Ceremonies</h3>
-
-        <p>
-        در این درس درباره جشن‌ها، تعطیلات، نوروز،
-        دیدار اقوام و رسم‌های مختلف صحبت می‌کنیم.
-        </p>
-
-        <div class="note">
-            New Year Holidays
-            <br>
-            تعطیلات سال نو
-        </div>
-    `,
+    overview: [
+        "<h3>Festivals and Ceremonies</h3>",
+        "<p>در این درس درباره جشن‌ها، تعطیلات، نوروز و آداب و رسوم صحبت می‌کنیم.</p>",
+        "<div class='note'>New Year Holidays - تعطیلات سال نو</div>"
+    ].join(""),
 
     vocabulary: [
         ["festival","جشنواره"],
@@ -543,211 +401,119 @@ ughter","دختر"],
         ["grandfather","پدربزرگ"],
         ["meal","وعده غذایی"],
         ["special","ویژه"],
-        ["special clothes","لباس مخصوص"],
+        ["spring","بهار"],
         ["goldfish","ماهی قرمز"],
         ["Haft Seen table","سفره هفت‌سین"],
         ["Nature Day","روز طبیعت"],
-        ["spring","بهار"],
         ["nuts","آجیل"],
-        ["visit our relatives","به دیدن اقوام رفتن"],
-        ["get gifts","هدیه گرفتن"],
-        ["buy new clothes","لباس نو خریدن"],
-        ["set the Haft Seen table","سفره هفت‌سین چیدن"],
-        ["color the eggs","تخم‌مرغ‌ها را رنگ کردن"],
-        ["watch fireworks","آتش‌بازی تماشا کردن"],
-        ["wash the dishes","ظرف‌ها را شستن"]
+        ["visit relatives","دیدار اقوام"],
+        ["get gifts","هدیه گرفتن"]
     ],
 
-    grammar: `
-        <h3>زمان حال ساده</h3>
+    grammar: [
+        "<h3>Simple Present</h3>",
+        "<p>از زمان حال ساده برای عادت‌ها و کارهای تکراری استفاده می‌کنیم.</p>",
+        "<div class='note english'>I / You / We / They + verb</div>",
+        "<div class='note english'>He / She / It + verb-s/es</div>",
+        "<h3>مثال‌ها</h3>",
+        "<p class='english'>We visit our relatives.</p>",
+        "<p>ما به دیدن اقواممان می‌رویم.</p>",
+        "<p class='english'>She cooks dinner.</p>",
+        "<p>او شام می‌پزد.</p>",
+        "<h3>منفی</h3>",
+        "<p class='english'>I don't watch TV.</p>",
+        "<p class='english'>She doesn't cook.</p>",
+        "<h3>سوالی</h3>",
+        "<p class='english'>Do you like spring?</p>",
+        "<p class='english'>Does he study English?</p>"
+    ].join(""),
 
-        <p>
-        برای بیان عادت‌ها، کارهای تکراری و واقعیت‌ها استفاده می‌شود.
-        </p>
+    conversation: [
+        "<h3>Conversation about Norooz</h3>",
+        "<p class='english'>A: Do you enjoy New Year holidays?</p>",
+        "<p class='english'>B: Yes, I do.</p>",
+        "<p class='english'>A: Do you visit your relatives?</p>",
+        "<p class='english'>B: Yes, I do.</p>",
+        "<div class='note'>مکالمه نمونه تمرینی</div>"
+    ].join(""),
 
-        <div cla
-
-ss="note english">
-            I / You / We / They + verb
-            <br>
-            He / She / It + verb-s/es
-        </div>
-
-        <h3>مثال‌ها</h3>
-
-        <p class="english">We visit our relatives.</p>
-        <p>ما به دیدن اقواممان می‌رویم.</p>
-
-        <p class="english">She cooks dinner.</p>
-        <p>او شام می‌پزد.</p>
-
-        <h3>جمله منفی</h3>
-
-        <p class="english">I don't watch TV.</p>
-        <p class="english">She doesn't cook.</p>
-
-        <h3>جمله پرسشی</h3>
-
-        <p class="english">Do you like spring?</p>
-        <p class="english">Does he study English?</p>
-
-        <h3>صفت‌های ملکی</h3>
-
-        <table>
-            <tr>
-                <th>کلمه</th>
-                <th>معنی</th>
-            </tr>
-
-            <tr>
-                <td class="english">My</td>
-                <td>مال من</td>
-            </tr>
-
-            <tr>
-                <td class="english">Your</td>
-                <td>مال تو / شما</td>
-            </tr>
-
-            <tr>
-                <td class="english">His</td>
-                <td>مال او (مذکر)</td>
-            </tr>
-
-            <tr>
-                <td class="english">Her</td>
-                <td>مال او (مونث)</td>
-            </tr>
-
-            <tr>
-                <td class="english">Our</td>
-                <td>مال ما</td>
-            </tr>
-
-            <tr>
-                <td class="english">Their</td>
-                <td>مال آن‌ها</td>
-            </tr>
-        </table>
-    `,
-
-    conversation: `
-        <h3>مکالمه درباره نوروز</h3>
-
-        <p class="english">
-            A: Do you enjoy New Year holidays?
-        </p>
-
-        <p class="english">
-            B: Yes, I do.
-        </p>
-
-        <p class="english">
-            I love visiting my relatives.
-        </p>
-
-        <p class="english">
-            A: Do you get gifts?
-        </p>
-
-        <p class="english">
-            B: Yes. We usually get money.
-        </p>
-
-        <p class="note">
-            این مکالمه نمونه تمرینی بازنویسی‌شده است.
-        </p>
-    `,
-
-    practice: `
-        <h3>تمرین درس سوم</h3>
-
-        <p>۱. جای خالی را کامل کن:</p>
-        <p class="english">She  English every day.</p>
-
-        <button onclick="answer('c1')">نمایش جواب</button>
-        <p class="answer" id="c1">studies</p>
-
-        <p>۲. جای خالی را کامل کن:</p>
-        <p class="english"> you visit your relatives?</p>
-
-        <button onclick="answer('c2')">نمایش جواب</button>
-        <p class="answer" id="c2">Do</p>
-
-        <p>۳. صفت ملکی مناسب را انتخاب کن:</p>
-        <p class="english">They love _ grandparents.</p>
-
-        <button onclick="answer('c3')">نمایش جواب</button>
-        <p class="answer" id="c3">their</p>
-    `
+    practice: [
+        "<h3>تمرین درس سوم</h3>",
+        "<p>۱. جای خالی را کامل کن:</p>",
+        "<p class='english'>She _ English every day.</p>",
+        "<button onclick=\"answer('c1')\">نمایش جواب</button>",
+        "<p class='answer' id='c1'>studies</p>",
+        "<p>۲. جای خالی را کامل کن:</p>",
+        "<p class='english'>___ you visit your relatives?</p>",
+        "<button onclick=\"answer('c2')\">نمایش جواب</button>",
+        "<p class='answer' id='c2'>Do</p>",
+        "<p>۳. جای خالی را کامل کن:</p>",
+        "<p class='english'>They love _ grandparents.</p>",
+        "<button onclick=\"answer('c3')\">نمایش جواب</button>",
+        "<p class='answer' id='c3'>their</p>"
+    ].join("")
 }
-
 ];
 
 function selectLesson(index, button) {
-
     const lesson = lessons[index];
 
-    document.querySelectorAll(".lesson-buttons button")
-        .forEach(btn => btn.classList.remove("active"));
+    if (!lesson) return;
+
+    document.querySelector
+
+All(".lesson-buttons button")
+        .forEach(function(btn) {
+            btn.classList.remove("active");
+        });
 
     button.classList.add("active");
 
-    document.getElementById("lessonTitle").textContent =
-        lesson.title;
+    document.getElementById("lessonTitle").textContent = lesson.title;
+    document.getElementById("lessonIntro").textContent = lesson.intro;
 
-    document.getElementById("lessonIntro").textContent =
-        lesson.intro;
+    document.getElementById("overview").innerHTML = lesson.overview;
 
-    document.getElementById("overview").innerHTML =
-        lesson.overview;
+    let vocabularyHTML = "<h3>واژگان جدید</h3>";
+    vocabularyHTML += "<table><tr><th>English</th><th>معنی فارسی</th></tr>";
 
-    document.getElementById("vocabulary").innerHTML =
-        "<h3>واژگان جدید</h3>" +
-        "<table><tr><th>English</th><th>معنی فارسی</th></tr>" +
+    lesson.vocabulary.forEach(function(word) {
+        vocabularyHTML += "<tr><td class='english'>" +
+            word[0] + "</td><td>" + word[1] + "</td></tr>";
+    });
 
-        lesson.vocabulary.map(word =>
-            "<tr><td class='english'>" +
-            word[0] +
-            "</td><td>" +
-            word[1] +
-            "</td></tr>"
-        ).join("") +
+    vocabularyHTML += "</table>";
 
-        "</table>";
+    document.getElementById("vocabulary").innerHTML = vocabularyHTML;
+    document.getElementById("grammar").innerHTML = lesson.grammar;
+    document.getElementById("conversation").innerHTML = lesson.conversation;
+    document.getElementById("practice").innerHTML = lesson.practice;
 
-    document.getElementById("grammar").innerHTML =
-        lesson.grammar;
-
-    document.getElementById("conversation").innerHTML =
-        lesson.conversation;
-
-    document.getElementById("practice").innerHTML =
-        lesson.practice;
-
-    showSection(
-        "overview",
-        document.querySelector(".section-buttons button")
-    );
+    const firstSectionButton = document.querySelector(".section-buttons button");
+    showSection("overview", firstSectionButton);
 }
 
 function showSection(id, button) {
+    document.querySelectorAll(".section").forEach(function(section) {
+        section.classList.remove("active");
+    });
 
-    document.querySelectorAll(".section")
-        .forEach(section => section.classList.remove("active"));
+    const selected = document.getElementById(id);
 
-    document.getElementById(id).classList.add("active");
+    if (selected) {
+        selected.classList.add("active");
+    }
 
-    document.quer
+    document.querySelectorAll(".section-buttons button").forEach(function(btn) {
+        btn.classList.remove("active");
+    });
 
-ySelectorAll(".section-buttons button")
-        .forEach(btn => btn.classList.remove("active"));
-
-    button.classList.add("active");
+    if (button) {
+        button.classList.add("active");
+    }
 }
 
 function answer(id) {
-
     const element = document.getElementById(id);
 
     if (element) {
@@ -755,11 +521,7 @@ function answer(id) {
     }
 }
 
-// نمایش خودکار درس اول هنگام باز شدن سایت
-selectLesson(
-    0,
-    document.querySelector(".lesson-buttons button")
-);
+selectLesson(0, document.querySelector(".lesson-buttons button"));
 
 </script>
 
