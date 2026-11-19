@@ -1,0 +1,131 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #090909;
+  color: #eee;
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 2;
+}
+
+header {
+  text-align: center;
+  padding: 35px 15px;
+  background: linear-gradient(135deg, #080808, #302515);
+  border-bottom: 2px solid #d6ad55;
+}
+
+header h1 {
+  color: #d6ad55;
+  font-size: 32px;
+  margin: 0;
+  direction: ltr;
+}
+
+header p { color: #ddd; margin: 5px; }
+
+.container {
+  max-width: 1050px;
+  margin: 30px auto;
+  padding: 0 15px;
+}
+
+.card {
+  background: #171717;
+  border: 1px solid #594827;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 22px;
+  box-shadow: 0 5px 20px #000;
+}
+
+h2, h3 { color: #d6ad55; }
+
+.lesson-buttons, .section-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+button {
+  background: #202020;
+  color: #eee;
+  border: 1px solid #b9954b;
+  padding: 10px 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: .25s;
+}
+
+button:hover { background: #51401f; transform: translateY(-2px); }
+
+button.active {
+  background: #d6ad55;
+  color: #111;
+  font-weight: bold;
+}
+
+.lesson-buttons button { flex: 1; direction: ltr; }
+
+.section { display: none; animation: appear .25s ease; }
+.section.active { display: block; }
+
+@keyframes appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.english {
+  direction: ltr;
+  text-align: left;
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+}
+
+td, th {
+  border: 1px solid #594827;
+  padding: 9px;
+  text-align: right;
+}
+
+th { background: #302515; color: #e5c274; }
+tr:nth-child(even) { background: #222; }
+
+.question {
+  background: #202020;
+  border: 1px solid #594827;
+  border-radius: 9px;
+  padding: 12px;
+  margin: 14px 0;
+}
+
+.answer {
+  display: none;
+  color: #e5c274;
+  font-weight: bold;
+  padding: 8px;
+}
+
+footer {
+  text-align: center;
+  color: #aaa;
+  padding: 25px;
+  border-top: 1px solid #594827;
+  margin-top: 35px;
+}
+
+@media (max-width: 650px) {
+  header h1 { font-size: 25px; }
+  .card { padding: 14px; }
+  .lesson-buttons button { flex: 1 1 100%; }
+  .section-buttons button { flex: 1 1 40%; }
+  table { font-size: 13px; }
+  td, th { padding: 6px; }
+}
