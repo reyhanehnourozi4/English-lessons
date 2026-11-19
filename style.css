@@ -21,6 +21,12 @@ header h1 {
   margin: 0;
   direction: ltr;
 }
+header h3{
+  color: #a88a48;
+  font-size: 32px;
+  margin: 0;
+  direction: ltr;
+}
 
 header p { color: #ddd; margin: 5px; }
 
